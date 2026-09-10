@@ -1,6 +1,7 @@
 import math
 import sys
 #Справка
+
 print("mathtool — решение уравнений вида A*x^2 + B*x + C = 0\nИспользование:\npython mathtool.py -> вывод справки\npython mathtool.py--help -> вывод справки\npython mathtool.py solve -> ввод коэффициентов с клавиатуры\npython mathtool.py solve -a 1 -b 2 -c 2 -> решение с заданными коэффициентами\nКоэффициенты A, B, C - целые числа, по модулю не превышающие 10000"   )
 #Получение данных
 a = int(input("Введите A: "))
@@ -47,8 +48,8 @@ else:
     if D>0:
         x1 = (-b + math.sqrt(D))/(2*a)
         x2 = (-b - math.sqrt(D))/(2*a)
-        print('x1 = ', x1)
-        print('x2 = ', x2)
+        print('x1 = ', "{:.3f}".format(x1))
+        print('x2 = ', "{:.3f}".format(x2))
     elif D==0:
         x = -b/(2*a)
         print(x)
