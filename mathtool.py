@@ -70,4 +70,3 @@ else:
         print("x = ", "{:.3f}".format(x))
     else:
         print("Дейтвительных корней нет")
-    
