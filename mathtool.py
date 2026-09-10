@@ -1,13 +1,27 @@
 import math
 import sys
 #Справка
-
-print("mathtool — решение уравнений вида A*x^2 + B*x + C = 0\nИспользование:\npython mathtool.py -> вывод справки\npython mathtool.py--help -> вывод справки\npython mathtool.py solve -> ввод коэффициентов с клавиатуры\npython mathtool.py solve -a 1 -b 2 -c 2 -> решение с заданными коэффициентами\nКоэффициенты A, B, C - целые числа, по модулю не превышающие 10000"   )
-#Получение данных
-a = int(input("Введите A: "))
-b = int(input("Введите B: "))
-c = int(input("Введите C: "))
-
+print(sys.argv)
+if len(sys.argv)== 0  or sys.argv[1] == "--help":
+    print("mathtool — решение уравнений вида A*x^2 + B*x + C = 0\nИспользование:\npython mathtool.py -> вывод справки\npython mathtool.py--help -> вывод справки\npython mathtool.py solve -> ввод коэффициентов с клавиатуры\npython mathtool.py solve -a 1 -b 2 -c 2 -> решение с заданными коэффициентами\nКоэффициенты A, B, C - целые числа, по модулю не превышающие 10000"   )
+    sys.exit(0)
+if sys.argv[1] != "solve":
+    print("ОШИБКА: Неизвестный код")
+    sys.exit(1)
+elif len(sys.argv) == 2 and sys.argv[1] == "solve":
+   a = int(input("Введите A: "))
+   b = int(input("Введите B: "))
+   c = int(input("Введите C: "))
+elif len(sys.argv)== 8:
+    if sys.argv[2]!= "-a" and sys.argv[4]!= "-b" and sys.argv[6]!= "-c":
+        print("Неизвестный параметр")
+        sys.exit(1)
+    a=sys.argv[3]
+    b=sys.argv[5]
+    c=sys.argv[7]
+else:
+    print("Неверный набор параметров")
+    sys.exit(1)
 #Проверка a
 try:
     a = int(a)
@@ -32,6 +46,7 @@ except ValueError:
 #Проверка ограничений
 if abs(a)>10000 or abs(b)>10000 or abs(c)>10000:
     print('ОШИБКА:значение вне допустимого диапозона')
+    sys.exit(1)
 #Решение
 if a == 0:
     if b != 0:
@@ -52,7 +67,7 @@ else:
         print('x2 = ', "{:.3f}".format(x2))
     elif D==0:
         x = -b/(2*a)
-        print(x)
+        print("x = ", "{:.3f}".format(x))
     else:
         print("Дейтвительных корней нет")
     
