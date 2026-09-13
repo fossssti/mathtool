@@ -1,10 +1,16 @@
 import math
 import sys
+d=10000
 #Справка
 print(sys.argv)
-if len(sys.argv)== 0  or sys.argv[1] == "--help":
-    print("mathtool — решение уравнений вида A*x^2 + B*x + C = 0\nИспользование:\npython mathtool.py -> вывод справки\npython mathtool.py--help -> вывод справки\npython mathtool.py solve -> ввод коэффициентов с клавиатуры\npython mathtool.py solve -a 1 -b 2 -c 2 -> решение с заданными коэффициентами\nКоэффициенты A, B, C - целые числа, по модулю не превышающие 10000"   )
-    sys.exit(0)
+try:
+    if len(sys.argv)== 0  or sys.argv[1] == "--help":
+        print("mathtool — решение уравнений вида A*x^2 + B*x + C = 0\nИспользование:\npython mathtool.py -> вывод справки\npython mathtool.py--help -> вывод справки\npython mathtool.py solve -> ввод коэффициентов с клавиатуры\npython mathtool.py solve -a 1 -b 2 -c 2 -> решение с заданными коэффициентами\nКоэффициенты A, B, C - целые числа, по модулю не превышающие 10000"   )
+        sys.exit(0)
+except IndexError:
+    print("ОШИБКА")
+    sys.exit(1)
+
 if sys.argv[1] != "solve":
     print("ОШИБКА: Неизвестный код")
     sys.exit(1)
@@ -44,7 +50,7 @@ except ValueError:
     sys.exit(1)
 
 #Проверка ограничений
-if abs(a)>10000 or abs(b)>10000 or abs(c)>10000:
+if abs(a)>d or abs(b)>d or abs(c)>d:
     print('ОШИБКА:значение вне допустимого диапозона')
     sys.exit(1)
 #Решение
