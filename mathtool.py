@@ -1,5 +1,7 @@
 import math
 import sys
+import cli
+
 d=10000
 #Справка
 print(sys.argv)
