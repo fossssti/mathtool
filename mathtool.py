@@ -11,7 +11,7 @@ def main(argv):
     parser = cli.set_parser()
     args = parser.parse_args(argv)
 
-    if argv.command is None:
+    if args.command is None:
         parser.print_help()
         return 0
 

@@ -6,8 +6,10 @@ MAX_VALUE= 10000
 def check_coefficients(coefficients):
     #Проверка коэффициентов на допустимый диапазон
     for name, value in coefficients.items():
+        if value is None:
+            raise ValueError(f"коэффициент {name} не задан")
         if abs(value)> MAX_VALUE:
-            raise ValueError("Ошибка: Коэффициент {name} вне допустимого диапозона")
+            raise ValueError(f"Ошибка: Коэффициент {name} вне допустимого диапозона")
 
 def solve(a, b, c):
        #Решение уравнения 
@@ -30,9 +32,9 @@ def solve(a, b, c):
 def handle_solve(args):
     if args.a is None and args.b is None and args.c is None:
         try:
-            args.a=int(input("Введите A: "))
-            args.b=int(input("Введите B: "))
-            args.x=int(input("Введите C: "))
+            args.a= int(input("Введите A: "))
+            args.b= int(input("Введите B: "))
+            args.c= int(input("Введите C: "))
         except ValueError:
             raise ValueError("Ошибка: коэффициент не является целым числом")
     elif None in (args.a, args.b, args.c):

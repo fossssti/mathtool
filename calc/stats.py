@@ -107,18 +107,18 @@ def handle_stats(args):
         values.append(v)
 
     table = [
-        ("Количество", len, "d")
-        ("Сумма", sum, ".3f")
-        ("Ср. арифм.", mean, ".3f")
-        ("Сумма кв.", sum_of_squares, ".3f")
-        ("Ср. арифм. кв.", root_mean_square, ".3f")
-        ("Дисперсия", variance, ".3f")
-        ("СКО", standart_deviation, ".3f")
-        ("Станд. откл.", sample_standart_deviation, ".3f")
-        ("Наименьшее", minimum, ".3f")
-        ("Наибольшее", maximum, ".3f")
-        ("Положительных", count_positive, "d")
-        ("Отрицательных", count_negative, "d")
+        ("Количество", len, "d"),
+        ("Сумма", sum, ".3f"),
+        ("Ср. арифм.", mean, ".3f"),
+        ("Сумма кв.", sum_of_squares, ".3f"),
+        ("Ср. арифм. кв.", root_mean_square, ".3f"),
+        ("Дисперсия", variance, ".3f"),
+        ("СКО", standart_deviation, ".3f"),
+        ("Станд. откл.", sample_standart_deviation, ".3f"),
+        ("Наименьшее", minimum, ".3f"),
+        ("Наибольшее", maximum, ".3f"),
+        ("Положительных", count_positive, "d"),
+        ("Отрицательных", count_negative, "d"),
     ]
     for label, fn, fmt in table:
         v = fn(values)

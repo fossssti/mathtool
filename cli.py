@@ -2,7 +2,7 @@ import argparse
 
 def set_parser():
     parser = argparse.ArgumentParser(prog="mathtool", description = "mathtool - решение уравнений", allow_abbrev= False)
-    commands = parser.add_subparsers(dest="command", allow_abbrev= False)
+    commands = parser.add_subparsers(dest="command")
 
     #solve
     parser_solve = commands.add_parser("solve", help="Решение уравнений ax^2+bx+c=0 ", allow_abbrev= False)   
