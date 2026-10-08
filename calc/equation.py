@@ -20,7 +20,7 @@ def solve(a, b, c):
                  x1=(-b+math.sqrt(dis))/(2*a)
                  x2=(-b-math.sqrt(dis))/(2*a)
                  return "Квадратное", dis, [x1,x2]
-            elif d == 0: 
+            elif dis == 0: 
                  x = -b/(2*a)
                  return "Квадратное", dis, [x]
             else:
