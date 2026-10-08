@@ -8,11 +8,12 @@ def f_root(x):
     return math.sqrt(x*x+1)
 
 Integrals = {
-    "ration": (f_ration, "F(x) = x / (x+1)", 0, 20, True),
+    "ratio": (f_ration, "F(x) = x / (x+1)", 0, 20, True),
     "root": (f_root, "F(x) = sqrt(x^2 + 1)", -5, 5, False ),
 }
 
 def integrate(func, a, b, steps):
+    #Метод левых треугольников
     dx = (b-a)/ steps
     result = 0
     for i in range(steps):

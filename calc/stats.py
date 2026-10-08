@@ -49,7 +49,7 @@ def sample_standart_deviation(values):
     avg = mean(values)
     total = 0
     for v in values:
-        total += v(v - avg) ** 2
+        total += (v - avg) ** 2
     return math.sqrt(total / (len(values) - 1))
 
 def minimum(values):
@@ -120,8 +120,8 @@ def handle_stats(args):
         ("Положительных", count_positive, "d"),
         ("Отрицательных", count_negative, "d"),
     ]
-    for label, fn, fmt in table:
-        v = fn(values)
+    for label, func, fmt in table:
+        v = func(values)
         if v is None:
             out = "Не существует"
         else:
