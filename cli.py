@@ -1,7 +1,7 @@
 import argparse
 
 def set_parser():
-    parser = argparse.ArgumenrParser(prog="mathtool", description = "mathtool - решение уравнений", allow_abbrev= False)
+    parser = argparse.ArgumentParser(prog="mathtool", description = "mathtool - решение уравнений", allow_abbrev= False)
     commands = parser.add_subparsers(dest="command", allow_abbrev= False)
 
     #solve
@@ -12,11 +12,11 @@ def set_parser():
 
     #stats
     parser_stats=commands.add_parser("stats", help="Показатели последовательности", allow_abbrev= False)
-    parser_stats.add_argument("--input",help="--")
+    parser_stats.add_argument("--input",help="Имя файла с числами")
 
     #series
     parser_series=commands.add_parser("series", help="сумма ряда", allow_abbrev=False)
-    parser_series.add_argumenr("--func", required=True, help="Имя ряда")
+    parser_series.add_argument("--func", required=True, help="Имя ряда")
     group = parser_series.add_mutually_exclusive_group(required=True)
     group.add_argument("--terms", type=int, help="Количество слагаемых")
     group.add_argument("--eps", type=float, help="Точность")
