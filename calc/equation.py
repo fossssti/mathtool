@@ -15,7 +15,7 @@ def solve(a, b, c):
                  raise ValueError("Ошибка: Неизвестное отсутствует, это не уравнение")
             return "Линейное", None, [-c/b]
        else:
-            dis = b^2-4*a*c
+            dis = b*b-4*a*c
             if dis > 0:
                  x1=(-b+math.sqrt(dis))/(2*a)
                  x2=(-b-math.sqrt(dis))/(2*a)
